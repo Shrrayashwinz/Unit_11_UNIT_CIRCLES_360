@@ -23,12 +23,20 @@ def degree_rotation(degrees):
 
 def main():
     print("You are now in the rotation calendar. Let's get started!")
-    while True:
+    print("\nRULES\n")
+    print("1) Always type in full numbers (e.g. 360, 250, 90). Decimals are not allowed.")
+    print("2) No strings, letters, or symbols allowed.")
+    print("3) If you use strings or letters, the code will give you a message and you will need to restart the simulation!")
+    print("4) If you want to end the game, just hit N. If you hit anything other than a Y or N, you will have to enter another number to get to the cotinuation prompt.")
+    print("5) Enjoy!")
+
+    resume = True
+
+    while resume:
         number_str = (input("Enter a number:"))
         degrees = degree_rotation(number_str)
 
         number = int(number_str)
-
 
         if number < 360 and number >= 0:
             print("This number:", number, "is within the 360 degrees range; no need to simplify it!")
@@ -37,7 +45,21 @@ def main():
             print("This number:", number, "is equalvalent to", degrees, "when the rotations are used")   
             
         else:
-            print("Please give an actual number.")
+            print("Please give an actual number. Decimals, symbols, and strings are not permitted.")
+
+        choice = input("Hey there dude! Do you want to go again? [Y/N]")
+        if choice == 'y':
+            resume = True
+        
+        elif choice == 'n':
+            resume = False
+            print("See you later!")
+            break
+        else:
+            print("Invalid input.")
+
+            
+
 
 if __name__ == "__main__": 
     main()
